@@ -1,0 +1,14 @@
+<div class="center">
+  <h1><%= @post.title %></h1>
+  <div class="post-div"><%= @post.body %></div>
+  <% if @post.author == current_user %>
+    <%= link_to "Edit", edit_post_path %>
+    <%= button_to "Delete", @post, method: :delete %>
+  <% end %>
+</div>
+
+<%- @post.comments.each do |comment|%>
+   <%= comment.body%>
+   <br>
+ <% end %>
+<%= render "comments/form", comment: @comment %>

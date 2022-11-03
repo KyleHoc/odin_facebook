@@ -1,0 +1,8 @@
+<%= form_with model: @comment do |form| %>
+  <p>
+    <%= form.hidden_field :author_id, value: current_user.id %>
+    <%= form.label :body, "Comment:" %><br>
+    <%= form.text_area :body, cols: 50, rows: 10 %>
+  </p>
+  <%= form.submit "Submit" %>
+<% end %>

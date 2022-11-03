@@ -1,7 +1,11 @@
 <h1>Users</h1>
-
-<div id="users" class="index-div" >
-  <% @users.each do |user| %>
-    <%= link_to user.name, users_path, :class => "index-name" %>
-  <% end %>
+<div class="index-body">
+  <div id="users" class="index-div" >
+    <% @users.each do |user| %>
+      <div class="user-div">
+        <%= link_to user.name, user_path(user.id), :class => "index-name" %>
+        <div class="friend-div">Friend Request</div>
+      </div>
+    <% end %>
+  </div>
 </div>

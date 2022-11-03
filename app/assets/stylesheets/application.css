@@ -13,3 +13,203 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+ body{
+    background-color: skyblue;
+ }
+
+ .header-bar{
+    background-color: black;
+    display: grid;
+    grid-template-columns: 39% 17% 17% 15% 5% 5%;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+ }
+
+ .new-post{
+    background-color: skyblue;
+    color: white;
+    height: 75%;
+    width: 200px;
+    font-size: 24px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    font-weight: bold;
+ }
+
+ .find-people{
+   background-color: lightgreen;
+   color: white;
+   height: 75%;
+   width: 200px;
+   font-size: 24px;
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100px;
+   font-weight: bold;
+}
+
+ .logged-in{
+    color: white;
+ }
+
+ .logged-in:visited{
+    color: white;
+ }
+
+ .index-div{
+    background-color: skyblue;
+    width: 60%
+ }
+
+ .user-div{
+    background-color: white;
+    padding: 15px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: skyblue;
+    border-radius: 100px;
+    display: grid;
+    grid-template-columns: 80% 10%;
+ }
+
+ .user-show-div{
+    background-color: white;
+    padding: 15px;
+    border-bottom: solid;
+    border-top: solid;
+    border-color: skyblue;
+    border-radius: 100px;
+    width: 50%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    grid-template-rows: 15% 15% 15% 40%;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .center{
+   display: grid;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .post-div{
+   background-color: white;
+   padding: 15px;
+   border-bottom: solid;
+   border-top: solid;
+   border-color: skyblue;
+   border-radius: 100px;
+   width: 500px;
+   height: 200px;
+   display: grid;
+   justify-content: center;
+   align-items: center;
+ }
+
+
+ .username, .bio{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+ }
+
+
+ .index-link{
+    font-size: 32px;
+    text-decoration:dotted;
+    color: white;
+ }
+
+ .navbar-link{
+    color: white;
+ }
+
+ .index-body{
+    display: flex;
+    justify-content: center;
+ }
+
+ .postlist{
+   background-color: white;
+   padding: 15px;
+   border-bottom: solid;
+   border-top: solid;
+   border-color: skyblue;
+   border-radius: 100px;
+   width: 20%;
+   display: grid;
+   grid-template-columns: 70% 5%;
+   row-gap: 10px;
+ }
+
+ .list-cont{
+   display: flex;
+   justify-content: center;
+ }
+
+ .comment{
+   background-color: white;
+ }

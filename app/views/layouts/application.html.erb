@@ -12,14 +12,19 @@
 
   <body>
     <p class="navbar-text float-right">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
+      <div class="header-bar">
+        <%= link_to "BookFace", root_path, :class => "index-link" %>
+        <% if user_signed_in? %>
+          <div class="find-people"><%= link_to "Find People", users_path, :class => "logged-in" %></div>
+          <div class="new-post"><%= link_to "New Post", new_post_path, :class => "logged-in" %></div>
+          <div style= "color: white">Logged in as <%= link_to current_user.name, user_path(current_user.id), :class => "logged-in" %></div>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+      </div>
     </p>
 
     <% if notice %>

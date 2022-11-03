@@ -1,3 +1,25 @@
-<div id="<%= dom_id user %>">
-<%= link_to user.name, user_path, :class => "index-name" %>
-</div>
+<%= form_for @user do |form| %>
+  <div>
+    <%= form.label :bday, style: "display: block" %>
+    <%= form.date_field :bday %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :occupation, style: "display: block" %>
+    <%= form.text_field :occupation %>
+  </div>
+
+  <div>
+    <%= form.label :bio, style: "display: block" %>
+    <%= form.text_area :bio %>
+  </div>
+
+  <div>
+    <%= form.submit "Update" %>
+  </div>
+<% end %>

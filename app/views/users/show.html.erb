@@ -1,2 +1,24 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="index-body">
+  <div class="user-show-div" >
+    <div class="username"><%= @user.name %></div>
+    <div>Email: <%= @user.email %></div>
+    <div>Birthday: <%= @user.bday %></div>
+    <div>City: <%= @user.location %></div>
+    <div>Occupation: <%= @user.occupation %></div>
+    <div class = "bio">Bio: <br><%= @user.bio %></div>
+    <% if current_user == @user %>
+      <%= link_to "Edit Profile", edit_user_path(current_user) %>
+    <% end %>
+  </div>
+</div>
+<h1 style= "font-size: 20px">Posts made by <%= @user.name %></h1>
+<div class="list-cont">
+  <% @posts.each do |post| %>
+    <div class="postlist">
+      <%= link_to post.title, post_path(post.id), :class => "index-name" %>
+      Like
+      <div class="friend-div"><%= link_to post.author.name, user_path(post.author.id) %></div>
+      <%= post.created_at.strftime("%-m/%-d/%y") %>
+    </div>
+  <% end %>
+</div>
