@@ -22,3 +22,8 @@
     </div>
   <% end %>
 </div>
+<p>Friends:</p>
+<%= @friends.each do |friend| %>
+  <%= friend.name %><br>
+  <%= link_to 'Delete', friends_destroy_path(friend: friend.id), method: :delete %>
+<% end %>

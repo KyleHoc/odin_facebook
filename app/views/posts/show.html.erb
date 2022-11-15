@@ -8,7 +8,13 @@
 </div>
 
 <%- @post.comments.each do |comment|%>
-   <%= comment.body%>
-   <br>
- <% end %>
-<%= render "comments/form", comment: @comment %>
+  <div class="comment-div">
+    <span class="comment-name"><%= comment.author.name %>:</span>
+    <%= comment.body %>
+    <% if comment.author == current_user %>
+      <%= button_to "Delete", comment, method: :delete, :class => "delete-comment" %>
+    <% end %>
+    </div>
+    <br>
+<% end %>
+<%= render "comments/form", post: @post %>

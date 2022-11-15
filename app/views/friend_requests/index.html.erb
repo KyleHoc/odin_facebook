@@ -1,0 +1,22 @@
+<h1>Friend Requests</h1>
+<% if @incoming.empty? %>
+  <p>You currently have no new friend requests</p>
+<% else %>
+  <p>Incoming friend requests</p>
+  <%= @incoming.each do |friend| %>
+    <%= friend.name %><br>
+    <%= link_to "Accept", accept_friend_request_path(friend.id), method: :post %><br>
+    <%= link_to "Decline", reject_friend_request_path(friend.id), method: :post %>
+  <% end %>
+<% end %>
+
+<p>_________________________________________________________________________________________<p>
+
+<% if @outgoing.empty? %>
+  <p>You have not sent any friend requests</p>
+<% else %>
+  <%= @outgoing.each do |friend| %>
+    <p>You have sent friend requests to:</p>
+    <%= friend.name %><br>
+  <% end %>
+<% end %>

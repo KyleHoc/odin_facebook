@@ -4,7 +4,9 @@
     <% @users.each do |user| %>
       <div class="user-div">
         <%= link_to user.name, user_path(user.id), :class => "index-name" %>
-        <div class="friend-div">Friend Request</div>
+        <% if user != current_user %>
+          <div class="friend-div"><%= link_to "Friend Request", friend_requests_path(friend_id: user.id), method: :post %> </div>
+        <% end %>
       </div>
     <% end %>
   </div>

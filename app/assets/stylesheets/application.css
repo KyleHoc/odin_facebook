@@ -75,7 +75,7 @@ h1{
  .header-bar{
     background-color: black;
     display: grid;
-    grid-template-columns: 39% 17% 17% 15% 5% 5%;
+    grid-template-columns: 30% 17% 17% 13% 8% 7% 5%;
     align-items: center;
     height: 50px;
     width: 100%;
@@ -210,6 +210,23 @@ h1{
    justify-content: center;
  }
 
- .comment{
+ .comment-div{
    background-color: white;
+   padding: 20px;
+   border-radius: 30px;
+   width: 30%;
+   margin-bottom: 5px;
+   margin-left: 5px;
+ }
+
+ .comment-name{
+   font-weight: bold;
+ }
+
+ .delete-comment{
+   margin-top: 10px;
+ }
+
+ .friend-div{
+   width: 150px;
  }

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'friendships/index'
+  get 'friendships/destroy'
+  resources :friend_requests do
+    member do
+      post :accept
+      post :reject
+    end
+  end
   devise_for :users
   resources :users
   resources :posts
