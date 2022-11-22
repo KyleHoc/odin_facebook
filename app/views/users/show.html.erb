@@ -16,14 +16,19 @@
   <% @posts.each do |post| %>
     <div class="postlist">
       <%= link_to post.title, post_path(post.id), :class => "index-name" %>
-      Like
+      <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <span><%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
+        <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p></span>
+      <% else %>
+        <span><%= button_to 'Like', post_likes_path(post), method: :post %>
+        <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p></span>
+      <% end %>
       <div class="friend-div"><%= link_to post.author.name, user_path(post.author.id) %></div>
       <%= post.created_at.strftime("%-m/%-d/%y") %>
     </div>
   <% end %>
 </div>
-<p>Friends:</p>
-<%= @friends.each do |friend| %>
-  <%= friend.name %><br>
-  <%= link_to 'Delete', friends_destroy_path(friend: friend.id), method: :delete %>
+<% if @user == current_user %>
+  <%= link_to "Friends", friendships_index_path %>
 <% end %>

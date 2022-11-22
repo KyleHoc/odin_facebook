@@ -4,6 +4,7 @@ class FriendRequestsController < ApplicationController
     def index
         @incoming = FriendRequest.where(friend: current_user)
         @outgoing = current_user.friend_requests
+        @users = User.all
       end
 
     def create
@@ -12,6 +13,7 @@ class FriendRequestsController < ApplicationController
 
       if @friend_request.save
         flash[:notice] = "Friend request sent"
+        redirect_to friend_requests_path
       else
         render json: @friend_request.errors, status: :unprocessable_entity
       end
@@ -21,13 +23,13 @@ class FriendRequestsController < ApplicationController
       friend = User.find(params[:id])
       current_user.friends << friend
       flash[:notice] = "Friend request accepted"
-      redirct_to friend_requests_path
+      redirect_to friend_requests_path
       destroy
     end
 
     def reject
         flash[:notice] = "Friend request rejected"
-        redirct_to friend_requests_path
+        redirect_to friend_requests_path
         destroy
     end
 

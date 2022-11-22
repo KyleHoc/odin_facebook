@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :users
-  resources :posts
+  resources :posts do
+    resources :likes
+  end
   resources :comments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

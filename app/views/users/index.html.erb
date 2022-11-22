@@ -5,7 +5,9 @@
       <div class="user-div">
         <%= link_to user.name, user_path(user.id), :class => "index-name" %>
         <% if user != current_user %>
-          <div class="friend-div"><%= link_to "Friend Request", friend_requests_path(friend_id: user.id), method: :post %> </div>
+          <% unless current_user.friends.include?(user)%>
+            <div class="friend-div"><%= button_to "Friend Request", friend_requests_path(friend_id: user.id), method: :post %> </div>
+          <% end %>
         <% end %>
       </div>
     <% end %>

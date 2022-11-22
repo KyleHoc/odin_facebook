@@ -3,10 +3,11 @@
   <p>You currently have no new friend requests</p>
 <% else %>
   <p>Incoming friend requests</p>
-  <%= @incoming.each do |friend| %>
+  <% @incoming.each do |request| %>
+    <% friend = User.find(request.user_id) %>
     <%= friend.name %><br>
-    <%= link_to "Accept", accept_friend_request_path(friend.id), method: :post %><br>
-    <%= link_to "Decline", reject_friend_request_path(friend.id), method: :post %>
+    <%= button_to "Accept", accept_friend_request_path(friend.id), method: :post %><br>
+    <%= button_to "Decline", reject_friend_request_path(friend.id), method: :post %>
   <% end %>
 <% end %>
 
@@ -15,7 +16,8 @@
 <% if @outgoing.empty? %>
   <p>You have not sent any friend requests</p>
 <% else %>
-  <%= @outgoing.each do |friend| %>
+  <% @outgoing.each do |request| %>
+    <% friend = User.find(request.friend_id) %>
     <p>You have sent friend requests to:</p>
     <%= friend.name %><br>
   <% end %>

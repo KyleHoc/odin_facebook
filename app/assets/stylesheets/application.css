@@ -230,3 +230,8 @@ h1{
  .friend-div{
    width: 150px;
  }
+
+ span{
+   display: flex;
+   justify-content: space-between;
+ }

@@ -3,10 +3,17 @@
   <div id="users" class="index-div" >
   <% unless @posts.empty? %>
     <% @posts.each do |post| %>
-      <% if post.author == current_user %>
+      <% if post.author == current_user || current_user.friends.include?(post.author) %>
         <div class="user-div" style="row-gap: 5px">
           <%= link_to post.title, post_path(post.id), :class => "index-name" %>
-          Like
+          <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+          <% if pre_like %>
+            <span><%= button_to 'Unlike', post_like_path(post, pre_like), method: :delete %>
+            <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p></span>
+          <% else %>
+            <span><%= button_to 'Like', post_likes_path(post), method: :post %>
+            <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p></span>
+          <% end %>
           <div class="friend-div"><%= link_to post.author.name, user_path(post.author.id) %></div>
           <%= post.created_at.strftime("%-m/%-d/%y") %>
         </div>
