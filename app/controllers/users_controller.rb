@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def user_params
     if params[:user]
-      params.require(:user).permit(:name, :email, :bio, :occupation, :bday, :location)
+      params.require(:user).permit(:name, :email, :bio, :occupation, :bday, :location, :avatar)
     end
   end
 
