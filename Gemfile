@@ -6,6 +6,9 @@ ruby "3.1.2"
 gem "letter_opener", group: :development
 
 gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
+gem "figaro"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"

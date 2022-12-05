@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post :reject
     end
   end
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
   resources :users
   resources :posts do
     resources :likes
