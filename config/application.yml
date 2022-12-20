@@ -1,6 +1,6 @@
 # Add configuration values here, as shown below.
-FACEBOOK_ID: "3224142121168982"
-FACEBOOK_SECRET: "721e9e5076e5c6a67a04cf83cd2cea97"
+GOOGLE_OAUTH_CLIENT_ID: "630112478041-i83kmhr5jrelmcpl94a7r42rsgdvnn45.apps.googleusercontent.com"
+GOOGLE_OUATH_CLIENT_SECRET: "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"
 #
 # pusher_app_id: "2954"
 # pusher_key: 7381a978f7dd7f9a1117
